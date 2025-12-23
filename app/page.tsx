@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
+
 import { useEffect, useState } from "react";
+import NextImage from "next/image";
 
 interface Category {
   id: number;
@@ -40,14 +41,12 @@ function ProductImageSlider({ images, interval = 4000 }: { images: SliderImage[]
 
   return (
     <div className="relative w-full h-full">
-      <Image
-        src={current.src}
-        alt={current.alt}
-        fill
-        sizes="(min-width: 1024px) 480px, (min-width: 768px) 50vw, 90vw"
-        className="object-cover rounded-3xl transition duration-700 ease-in-out"
-        priority={index === 0}
-      />
+   <img
+  src={current.src}
+  alt={current.alt}
+  className="absolute inset-0 w-full h-full object-cover rounded-3xl transition duration-700 ease-in-out"
+/>
+
       <div className="absolute inset-0 bg-gradient-to-t from-[#050A1A]/60 via-transparent to-transparent"></div>
       <div className="absolute bottom-4 right-4 flex gap-2">
         {images.map((_, i) => (
@@ -88,7 +87,12 @@ export default function Home() {
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#0A1F3C]/80 border-b border-[#D4AF37]/20">
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Image src="/logo.jfif" alt="Shahidaana Logo" width={60} height={60} className="drop-shadow-lg" />
+           
+          <img
+  src="/logo.jfif"
+  alt="Shahidaana Logo"
+  className="w-[60px] h-[60px] drop-shadow-lg"
+/>
             <h1 className="text-2xl font-bold text-white tracking-wider hidden sm:block">SHAHIDAANA</h1>
           </div>
           <nav className="hidden md:flex items-center gap-12">
@@ -160,7 +164,7 @@ export default function Home() {
             {categories.map((category) => (
               <div key={category.id} className="group relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 transition duration-500 cursor-pointer transform hover:-translate-y-3">
                 <div className="relative h-72 overflow-hidden">
-                  <Image src={category.image} alt={category.name} fill className="object-cover group-hover:scale-110 transition duration-500" />
+                  <NextImage src={category.image} alt={category.name} fill className="object-cover group-hover:scale-110 transition duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F3C] via-transparent to-transparent"></div>
                 </div>
                 <div className="p-6 relative z-10">
@@ -187,7 +191,7 @@ export default function Home() {
             {products.map((product) => (
               <div key={product.id} className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 transform hover:-translate-y-2">
                 <div className="relative h-56 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-                  <Image src={product.image} alt={product.name} fill className="object-cover group-hover:scale-110 transition duration-500" />
+                  <NextImage src={product.image} alt={product.name} fill className="object-cover group-hover:scale-110 transition duration-500" />
                   <div className="absolute top-4 right-4 bg-gradient-to-r from-[#D4AF37] to-[#F5D98C] text-[#0A1F3C] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">Premium</div>
                 </div>
                 <div className="p-6">
