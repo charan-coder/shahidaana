@@ -131,7 +131,7 @@ export default function Home() {
                   images={[
                     { src: "/date.jfif", alt: "Mixed Dry Fruits Bowl - Premium" },
                     { src: "/almonds.jfif", alt: "Premium almonds" },
-                    { src: "/gift.jpg", alt: "Deluxe Gifts" },
+                    { src: "/gift.jfif", alt: "Deluxe Gifts" },
                   ]}
                 />
                 <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-md rounded-xl px-6 py-4 shadow-2xl">
